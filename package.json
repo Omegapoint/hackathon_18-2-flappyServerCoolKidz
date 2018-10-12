@@ -4,8 +4,8 @@
   "description": "Backend for flappy bird multiplayer game, created during hackathon 18.2",
   "main": "index.js",
   "scripts": {
-    "server": "node src/server.ts",
-    "client": "node src/client/clientServer.ts",
+    "server": "babel-node src/server.ts",
+    "client": "babel-node src/client/clientServer.ts",
     "test": "test"
   },
   "keywords": [

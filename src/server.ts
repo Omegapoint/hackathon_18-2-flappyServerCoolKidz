@@ -1,12 +1,11 @@
-const http = require("http");
-const socketIo = require("socket.io").default;
+import http from "http";
+import socketIo from "socket.io";
+import { GameState } from "./models/GameState";
 
 const ioServer = socketIo({
-    path: "/flappy",
+    path: "/",
     serveClient: false,
 });
-
-//const socketIo = require("socket.io").default;
 
 const server = http.createServer();
 
@@ -16,20 +15,20 @@ ioServer.attach(server, {
     cookie: false
 });
 
-ioServer.on("connection", (socket) => {
+ioServer.on("connection", (socket: any) => {
     console.log("Client connected to server");
     socket.emit("welcome", "hello you connected to the seervör");
 });
 
-ioServer.use((socket, next) => {
+ioServer.use((socket: any, next: any) => {
     console.log("Socket middleware");
     next();
 });
 
-const serverPort = 5555;
+const serverPort = 10000;
 console.log("Server on port ", serverPort);
-var gameState = {
-
+const gameState: GameState = {
+    time: 0
 };
-ioServer.of('/').emit('flappy', 'hello');
+ioServer.of('/').emit("flappy", 'hello');
 server.listen(serverPort);

@@ -2,7 +2,7 @@ import io from "socket.io-client";
 
 console.log("client code");
 
-const port = 5555;
+const port = 10000;
 console.log("Client connecting to: ", port);
 
 document.getElementById("test-id").innerText = "bla";

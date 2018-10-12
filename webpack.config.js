@@ -1,4 +1,5 @@
 const path = require("path");
+const { CheckerPlugin } = require("awesome-typescript-loader");
 
 const config = {
     entry: {
@@ -23,7 +24,9 @@ const config = {
             },
         ]
     },
-
+    plugins: [
+        new CheckerPlugin()
+    ]
 };
 
 module.exports = config;
